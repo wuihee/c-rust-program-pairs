@@ -231,6 +231,32 @@
             }
         },
         {
+            "program_name": "snice",
+            "program_description": "Send a signal or report process status.",
+            "c_program": {
+                "source_paths": [
+                    "src/skill.c",
+                    "local/strutils.c",
+                    "local/fileutils.c",
+                    "local/signals.c",
+                    "local/c.h",
+                    "local/nls.h",
+                    "local/strutils.h",
+                    "local/fileutils.h",
+                    "local/signals.h",
+                    "local/rpmatch.h",
+                    "local/xalloc.h",
+                    "library/include/misc.h",
+                    "library/include/pids.h"
+                ]
+            },
+            "rust_program": {
+                "source_paths": [
+                    "src/uu/snice/src"
+                ]
+            }
+        },
+        {
             "program_name": "slabtop",
             "program_description": "Display detailed kernel slab cache information in real time.",
             "c_program": {
