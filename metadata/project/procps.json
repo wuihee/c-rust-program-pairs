@@ -366,8 +366,13 @@
                     "local/nls.h",
                     "local/strutils.h",
                     "local/fileutils.h",
-                    "library/include/vmstat.h",
-                    "library/include/stat.h"
+                    "local/xalloc.h",
+                    "library/include/diskstats.h",
+                    "library/include/meminfo.h",
+                    "library/include/misc.h",
+                    "library/include/slabinfo.h",
+                    "library/include/stat.h",
+                    "library/include/vmstat.h"
                 ]
             },
             "rust_program": {
