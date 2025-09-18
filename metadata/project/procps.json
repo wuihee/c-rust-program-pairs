@@ -390,7 +390,10 @@
                     "local/fileutils.c",
                     "local/c.h",
                     "local/nls.h",
-                    "local/fileutils.h"
+                    "local/fileutils.h",
+                    "library/include/misc.h",
+                    "library/include/pids.h",
+                    "library/include/stat.h"
                 ]
             },
             "rust_program": {
