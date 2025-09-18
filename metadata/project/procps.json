@@ -155,7 +155,6 @@
             "program_description": "Display information about active processes.",
             "c_program": {
                 "source_paths": [
-                    "src/ps/common.h",
                     "src/ps/display.c",
                     "src/ps/global.c",
                     "src/ps/help.c",
@@ -167,11 +166,14 @@
                     "local/fileutils.c",
                     "local/signals.c",
                     "local/strutils.c",
+                    "src/ps/common.h",
                     "local/c.h",
                     "local/nls.h",
                     "local/fileutils.h",
                     "local/signals.h",
                     "local/strutils.h",
+                    "local/xalloc.h",
+                    "library/include/misc.h",
                     "library/include/pids.h",
                     "library/include/readproc.h"
                 ]
