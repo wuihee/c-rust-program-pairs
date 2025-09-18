@@ -218,6 +218,9 @@
                     "local/strutils.h",
                     "local/fileutils.h",
                     "local/signals.h",
+                    "local/rpmatch.h",
+                    "local/xalloc.h",
+                    "library/include/misc.h",
                     "library/include/pids.h"
                 ]
             },
