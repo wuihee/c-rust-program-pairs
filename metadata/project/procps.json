@@ -96,6 +96,7 @@
                     "local/fileutils.h",
                     "local/signals.h",
                     "local/strutils.h",
+                    "local/xalloc.h",
                     "library/include/pids.h"
                 ]
             },
@@ -119,6 +120,7 @@
                     "local/fileutils.h",
                     "local/signals.h",
                     "local/strutils.h",
+                    "local/xalloc.h",
                     "library/include/pids.h"
                 ]
             },
