@@ -281,29 +281,6 @@
             }
         },
         {
-            "program_name": "snice",
-            "program_description": "Change the scheduling priority of a running process.",
-            "c_program": {
-                "source_paths": [
-                    "src/skill.c",
-                    "local/strutils.c",
-                    "local/fileutils.c",
-                    "local/signals.c",
-                    "local/c.h",
-                    "local/nls.h",
-                    "local/strutils.h",
-                    "local/fileutils.h",
-                    "local/signals.h",
-                    "library/include/pids.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": [
-                    "src/uu/snice/src"
-                ]
-            }
-        },
-        {
             "program_name": "sysctl",
             "program_description": "Read or write kernel parameters at run-time.",
             "c_program": {
