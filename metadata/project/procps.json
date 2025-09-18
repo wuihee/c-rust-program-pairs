@@ -193,7 +193,9 @@
                     "local/fileutils.c",
                     "local/c.h",
                     "local/nls.h",
-                    "local/fileutils.h"
+                    "local/fileutils.h",
+                    "local/strutils.h",
+                    "local/xalloc.h"
                 ]
             },
             "rust_program": {
