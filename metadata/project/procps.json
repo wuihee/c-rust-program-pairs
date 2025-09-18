@@ -291,7 +291,8 @@
                     "local/c.h",
                     "local/nls.h",
                     "local/fileutils.h",
-                    "local/procio.h"
+                    "local/procio.h",
+                    "local/xalloc.h"
                 ]
             },
             "rust_program": {
