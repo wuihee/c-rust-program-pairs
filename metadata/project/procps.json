@@ -270,6 +270,7 @@
                     "local/strutils.h",
                     "local/fileutils.h",
                     "local/units.h",
+                    "local/xalloc.h",
                     "library/include/slabinfo.h"
                 ]
             },
