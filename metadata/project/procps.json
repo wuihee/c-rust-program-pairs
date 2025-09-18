@@ -328,20 +328,24 @@
             "program_description": "Display real-time information about system processes.",
             "c_program": {
                 "source_paths": [
-                    "src/top/top.h",
                     "src/top/top.c",
-                    "src/top/top_nls.h",
                     "src/top/top_nls.c",
                     "local/fileutils.c",
                     "local/signals.c",
                     "local/strutils.c",
                     "local/strverscmp.c",
+                    "src/top/top.h",
+                    "src/top/top_nls.h",
                     "local/c.h",
                     "local/nls.h",
                     "local/fileutils.h",
                     "local/signals.h",
                     "local/strutils.h",
-                    "library/include/pids.h"
+                    "local/xalloc.h",
+                    "library/include/meminfo.h",
+                    "library/include/misc.h",
+                    "library/include/pids.h",
+                    "library/include/stat.h"
                 ]
             },
             "rust_program": {
