@@ -29,7 +29,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/blockdev/src/blockdev"]
+                "source_paths": ["src/uu/blockdev/src"]
             }
         },
         {
@@ -50,7 +50,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/chcpu/src/chcpu"]
+                "source_paths": ["src/uu/chcpu/src"]
             }
         },
         {
@@ -67,7 +67,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/ctrlaltdel/src/ctrlaltdel"]
+                "source_paths": ["src/uu/ctrlaltdel/src"]
             }
         },
         {
@@ -100,7 +100,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/dmesg/src/dmesg"]
+                "source_paths": ["src/uu/dmesg/src"]
             }
         },
         {
@@ -117,7 +117,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/fsfreeze/src/fsfreeze"]
+                "source_paths": ["src/uu/fsfreeze/src"]
             }
         },
         {
@@ -141,7 +141,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/last/src/last"]
+                "source_paths": ["src/uu/last/src"]
             }
         },
         {
@@ -170,7 +170,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/lscpu/src/lscpu"]
+                "source_paths": ["src/uu/lscpu/src"]
             }
         },
         {
@@ -195,7 +195,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/lsipc/src/lsipc"]
+                "source_paths": ["src/uu/lsipc/src"]
             }
         },
         {
@@ -205,7 +205,7 @@
                 "source_paths": ["misc-utils/lslocks.c"]
             },
             "rust_program": {
-                "source_paths": ["src/uu/lslocks/src/lslocks"]
+                "source_paths": ["src/uu/lslocks/src"]
             }
         },
         {
@@ -215,7 +215,7 @@
                 "source_paths": [
                     "sys-utils/lsmem.c",
                     "include/pathnames.h",
-                    "include/cancanonicalize.h",
+                    "include/canonicalize.h",
                     "include/nls.h",
                     "include/xalloc.h",
                     "include/strutils.h",
@@ -230,7 +230,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/lsmem/src/lsmem"]
+                "source_paths": ["src/uu/lsmem/src"]
             }
         },
         {
@@ -251,7 +251,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/mcookie/src/mcookie"]
+                "source_paths": ["src/uu/mcookie/src"]
             }
         },
         {
@@ -269,7 +269,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/mesg/src/mesg"]
+                "source_paths": ["src/uu/mesg/src"]
             }
         },
         {
@@ -286,7 +286,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/mountpoint/src/mountpoint"]
+                "source_paths": ["src/uu/mountpoint/src"]
             }
         },
         {
@@ -302,7 +302,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/renice/src/nologin"]
+                "source_paths": ["src/uu/renice/src"]
             }
         },
         {
@@ -317,7 +317,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/renice/src/renice"]
+                "source_paths": ["src/uu/renice/src"]
             }
         },
         {
@@ -331,11 +331,11 @@
                     "include/widechar.h",
                     "include/c.h",
                     "include/closestream.h",
-                    "include/fgetfgetwc_or_err.h"
+                    "include/fgetwc_or_err.h"
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/rev/src/rev"]
+                "source_paths": ["src/uu/rev/src"]
             }
         },
         {
@@ -350,7 +350,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/setsid/src/setsid"]
+                "source_paths": ["src/uu/setsid/src"]
             }
         },
         {
@@ -369,7 +369,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": ["src/uu/uuidgen/src/uuidgen"]
+                "source_paths": ["src/uu/uuidgen/src"]
             }
         }
     ]
