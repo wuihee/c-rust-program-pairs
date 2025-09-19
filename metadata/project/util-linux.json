@@ -64,7 +64,12 @@
             "program_description": "Sets the function of the Ctrl+Alt+Del key combination.",
             "c_program": {
                 "source_paths": [
-                    "sys-utils/ctrlaltdel.c"
+                    "sys-utils/ctrlaltdel.c",
+                    "include/nls.h",
+                    "include/c.h",
+                    "include/closestream.h",
+                    "include/pathnames.h",
+                    "include/path.h"
                 ]
             },
             "rust_program": {
