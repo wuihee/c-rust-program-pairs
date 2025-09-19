@@ -379,7 +379,10 @@
             "program_description": "Runs a program in a new session, detached from the terminal.",
             "c_program": {
                 "source_paths": [
-                    "sys-utils/setsid.c"
+                    "sys-utils/setsid.c",
+                    "include/c.h",
+                    "include/nls.h",
+                    "include/closestream.h"
                 ]
             },
             "rust_program": {
