@@ -342,7 +342,10 @@
             "program_description": "Alters the scheduling priority of running processes.",
             "c_program": {
                 "source_paths": [
-                    "sys-utils/renice.c"
+                    "sys-utils/renice.c",
+                    "include/nls.h",
+                    "include/c.h",
+                    "include/closestream.h"
                 ]
             },
             "rust_program": {
