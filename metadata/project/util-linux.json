@@ -118,7 +118,12 @@
             "program_description": "Suspends and resumes access to a filesystem to create consistent snapshots.",
             "c_program": {
                 "source_paths": [
-                    "sys-utils/fsfreeze.c"
+                    "sys-utils/fsfreeze.c",
+                    "include/c.h",
+                    "include/blkdev.h",
+                    "include/nls.h",
+                    "include/closestream.h",
+                    "include/optutils.h"
                 ]
             },
             "rust_program": {
