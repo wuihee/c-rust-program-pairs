@@ -305,7 +305,12 @@
             "program_description": "Checks whether a directory or file is a mountpoint.",
             "c_program": {
                 "source_paths": [
-                    "sys-utils/mountpoint.c"
+                    "sys-utils/mountpoint.c",
+                    "include/nls.h",
+                    "include/xalloc.h",
+                    "include/c.h",
+                    "include/closestream.h",
+                    "include/pathnames.h"
                 ]
             },
             "rust_program": {
