@@ -235,7 +235,20 @@
             "program_description": "Lists the ranges of available memory with their online status.",
             "c_program": {
                 "source_paths": [
-                    "sys-utils/lsmem.c"
+                    "sys-utils/lsmem.c",
+                    "include/pathnames.h",
+                    "include/cancanonicalize.h",
+                    "include/nls.h",
+                    "include/xalloc.h",
+                    "include/strutils.h",
+                    "include/c.h",
+                    "include/cctype.h",
+                    "include/list.h",
+                    "include/closestream.h",
+                    "include/optutils.h",
+                    "include/procfs.h",
+                    "include/column-list-table.h",
+                    "include/fileutils.h"
                 ]
             },
             "rust_program": {
