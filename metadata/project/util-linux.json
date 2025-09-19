@@ -396,7 +396,14 @@
             "program_description": "Generates universally unique identifiers (UUIDs).",
             "c_program": {
                 "source_paths": [
-                    "misc-utils/uuidgen.c"
+                    "misc-utils/uuidgen.c",
+                    "libuuid/src/uuid.h",
+                    "include/nls.h",
+                    "include/c.h",
+                    "include/closestream.h",
+                    "include/strutils.h",
+                    "include/optutils.h",
+                    "include/xalloc.h"
                 ]
             },
             "rust_program": {
