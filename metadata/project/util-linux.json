@@ -83,7 +83,28 @@
             "program_description": "Displays kernel ring buffer messages and system boot messages.",
             "c_program": {
                 "source_paths": [
-                    "sys-utils/dmesg.c"
+                    "sys-utils/dmesg.c",
+                    "lib/monotonic.c",
+                    "lib/pager.c",
+                    "include/c.h",
+                    "include/cctype.h",
+                    "include/colors.h",
+                    "include/nls.h",
+                    "include/strutils.h",
+                    "include/xalloc.h",
+                    "include/widechar.h",
+                    "include/all-io.h",
+                    "include/bitops.h",
+                    "include/closestream.h",
+                    "include/optutils.h",
+                    "include/timeutils.h",
+                    "include/monotonic.h",
+                    "include/mangle.h",
+                    "include/pager.h",
+                    "include/jsonwrt.h",
+                    "include/pathnames.h",
+                    "include/pager.h",
+                    "include/ttyutils.h"
                 ]
             },
             "rust_program": {
