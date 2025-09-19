@@ -359,7 +359,13 @@
             "program_description": "Reverses the order of characters in every line of input text.",
             "c_program": {
                 "source_paths": [
-                    "text-utils/rev.c"
+                    "text-utils/rev.c",
+                    "include/nls.h",
+                    "include/xalloc.h",
+                    "include/widechar.h",
+                    "include/c.h",
+                    "include/closestream.h",
+                    "include/fgetfgetwc_or_err.h"
                 ]
             },
             "rust_program": {
