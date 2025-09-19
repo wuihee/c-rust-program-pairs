@@ -32,7 +32,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/blockdev/src/blockdev.rs"
+                    "src/uu/blockdev/src/blockdev"
                 ]
             }
         },
@@ -55,7 +55,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/chcpu/src/chcpu.rs"
+                    "src/uu/chcpu/src/chcpu"
                 ]
             }
         },
@@ -74,7 +74,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/ctrlaltdel/src/ctrlaltdel.rs"
+                    "src/uu/ctrlaltdel/src/ctrlaltdel"
                 ]
             }
         },
@@ -109,7 +109,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/dmesg/src/dmesg.rs"
+                    "src/uu/dmesg/src/dmesg"
                 ]
             }
         },
@@ -128,7 +128,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/fsfreeze/src/fsfreeze.rs"
+                    "src/uu/fsfreeze/src/fsfreeze"
                 ]
             }
         },
@@ -154,7 +154,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/last/src/last.rs"
+                    "src/uu/last/src/last"
                 ]
             }
         },
@@ -185,7 +185,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/lscpu/src/lscpu.rs"
+                    "src/uu/lscpu/src/lscpu"
                 ]
             }
         },
@@ -212,7 +212,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/lsipc/src/lsipc.rs"
+                    "src/uu/lsipc/src/lsipc"
                 ]
             }
         },
@@ -226,7 +226,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/lslocks/src/lslocks.rs"
+                    "src/uu/lslocks/src/lslocks"
                 ]
             }
         },
@@ -253,7 +253,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/lsmem/src/lsmem.rs"
+                    "src/uu/lsmem/src/lsmem"
                 ]
             }
         },
@@ -276,7 +276,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/mcookie/src/mcookie.rs"
+                    "src/uu/mcookie/src/mcookie"
                 ]
             }
         },
@@ -296,7 +296,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/mesg/src/mesg.rs"
+                    "src/uu/mesg/src/mesg"
                 ]
             }
         },
@@ -315,7 +315,25 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/mountpoint/src/mountpoint.rs"
+                    "src/uu/mountpoint/src/mountpoint"
+                ]
+            }
+        },
+        {
+            "program_name": "nologin",
+            "program_description": "Displays a message that an account is not available and exits non-zero.",
+            "c_program": {
+                "source_paths": [
+                    "login-utils/nologin.c",
+                    "include/c.h",
+                    "include/nls.h",
+                    "include/pathnames.h",
+                    "include/fileutils.h"
+                ]
+            },
+            "rust_program": {
+                "source_paths": [
+                    "src/uu/renice/src/nologin"
                 ]
             }
         },
@@ -329,7 +347,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/renice/src/renice.rs"
+                    "src/uu/renice/src/renice"
                 ]
             }
         },
@@ -343,7 +361,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/rev/src/rev.rs"
+                    "src/uu/rev/src/rev"
                 ]
             }
         },
@@ -357,7 +375,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/setsid/src/setsid.rs"
+                    "src/uu/setsid/src/setsid"
                 ]
             }
         },
@@ -371,7 +389,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/uuidgen/src/uuidgen.rs"
+                    "src/uu/uuidgen/src/uuidgen"
                 ]
             }
         }
