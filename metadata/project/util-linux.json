@@ -262,7 +262,16 @@
             "program_description": "Generates a 128-bit random hexadecimal number for use as a magic cookie by xauth.",
             "c_program": {
                 "source_paths": [
-                    "misc-utils/mcookie.c"
+                    "misc-utils/mcookie.c",
+                    "lib/md5.c",
+                    "include/c.h",
+                    "include/md5.h",
+                    "include/nls.h",
+                    "include/closestream.h",
+                    "include/randutils.h",
+                    "include/strutils.h",
+                    "include/xalloc.h",
+                    "include/all-io.h"
                 ]
             },
             "rust_program": {
