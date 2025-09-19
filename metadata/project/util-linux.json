@@ -137,7 +137,19 @@
             "program_description": "Shows a listing of last logged in users and system boot times.",
             "c_program": {
                 "source_paths": [
-                    "login-utils/last.c"
+                    "login-utils/last.c",
+                    "lib/monotonic.c",
+                    "include/c.h",
+                    "include/nls.h",
+                    "include/optutils.h",
+                    "include/pathnames.h",
+                    "include/xalloc.h",
+                    "include/closestream.h",
+                    "include/carefulputc.h",
+                    "include/strutils.h",
+                    "include/timeutils.h",
+                    "include/monotonic.h",
+                    "include/fileutils.h"
                 ]
             },
             "rust_program": {
