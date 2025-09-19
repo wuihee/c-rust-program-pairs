@@ -41,7 +41,16 @@
             "program_description": "Configures CPUs by enabling or disabling them on systems that support CPU hotplug.",
             "c_program": {
                 "source_paths": [
-                    "sys-utils/chcpu.c"
+                    "sys-utils/chcpu.c",
+                    "include/cpuset.h",
+                    "include/nls.h",
+                    "include/xalloc.h",
+                    "include/c.h",
+                    "include/strutils.h",
+                    "include/bitops.h",
+                    "include/path.h",
+                    "include/closestream.h",
+                    "include/optutils.h"
                 ]
             },
             "rust_program": {
