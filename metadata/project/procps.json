@@ -1,9 +1,7 @@
 {
     "project_information": {
         "program_name": "procps",
-        "translation_tools": [
-            "manual"
-        ],
+        "translation_tools": ["manual"],
         "feature_relationship": "rust_equivalent_to_c",
         "c_program": {
             "documentation_url": "https://gitlab.com/procps-ng/procps",
@@ -34,9 +32,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/free/src"
-                ]
+                "source_paths": ["src/uu/free/src"]
             }
         },
         {
@@ -59,9 +55,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/pgrep/src"
-                ]
+                "source_paths": ["src/uu/pgrep/src"]
             }
         },
         {
@@ -77,9 +71,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/pidof/src"
-                ]
+                "source_paths": ["src/uu/pidof/src"]
             }
         },
         {
@@ -101,9 +93,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/pidwait/src"
-                ]
+                "source_paths": ["src/uu/pidwait/src"]
             }
         },
         {
@@ -125,9 +115,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/pkill/src"
-                ]
+                "source_paths": ["src/uu/pkill/src"]
             }
         },
         {
@@ -145,9 +133,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/pmap/src"
-                ]
+                "source_paths": ["src/uu/pmap/src"]
             }
         },
         {
@@ -179,9 +165,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/ps/src"
-                ]
+                "source_paths": ["src/uu/ps/src"]
             }
         },
         {
@@ -199,9 +183,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/pwdx/src"
-                ]
+                "source_paths": ["src/uu/pwdx/src"]
             }
         },
         {
@@ -225,9 +207,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/skill/src"
-                ]
+                "source_paths": ["src/uu/skill/src"]
             }
         },
         {
@@ -251,9 +231,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/snice/src"
-                ]
+                "source_paths": ["src/uu/snice/src"]
             }
         },
         {
@@ -275,9 +253,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/slabtop/src"
-                ]
+                "source_paths": ["src/uu/slabtop/src"]
             }
         },
         {
@@ -296,9 +272,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/sysctl/src"
-                ]
+                "source_paths": ["src/uu/sysctl/src"]
             }
         },
         {
@@ -318,9 +292,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/tload/src"
-                ]
+                "source_paths": ["src/uu/tload/src"]
             }
         },
         {
@@ -349,9 +321,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/top/src"
-                ]
+                "source_paths": ["src/uu/top/src"]
             }
         },
         {
@@ -376,9 +346,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/vmstat/src"
-                ]
+                "source_paths": ["src/uu/vmstat/src"]
             }
         },
         {
@@ -397,9 +365,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/w/src"
-                ]
+                "source_paths": ["src/uu/w/src"]
             }
         },
         {
@@ -420,9 +386,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/watch/src"
-                ]
+                "source_paths": ["src/uu/watch/src"]
             }
         }
     ]

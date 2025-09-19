@@ -1,9 +1,7 @@
 {
     "project_information": {
         "program_name": "util-linux",
-        "translation_tools": [
-            "manual"
-        ],
+        "translation_tools": ["manual"],
         "feature_relationship": "rust_equivalent_to_c",
         "c_program": {
             "documentation_url": "https://github.com/util-linux/util-linux/blob/master/Documentation/releases/v2.40-ReleaseNotes",
@@ -31,9 +29,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/blockdev/src/blockdev"
-                ]
+                "source_paths": ["src/uu/blockdev/src/blockdev"]
             }
         },
         {
@@ -54,9 +50,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/chcpu/src/chcpu"
-                ]
+                "source_paths": ["src/uu/chcpu/src/chcpu"]
             }
         },
         {
@@ -73,9 +67,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/ctrlaltdel/src/ctrlaltdel"
-                ]
+                "source_paths": ["src/uu/ctrlaltdel/src/ctrlaltdel"]
             }
         },
         {
@@ -108,9 +100,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/dmesg/src/dmesg"
-                ]
+                "source_paths": ["src/uu/dmesg/src/dmesg"]
             }
         },
         {
@@ -127,9 +117,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/fsfreeze/src/fsfreeze"
-                ]
+                "source_paths": ["src/uu/fsfreeze/src/fsfreeze"]
             }
         },
         {
@@ -153,9 +141,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/last/src/last"
-                ]
+                "source_paths": ["src/uu/last/src/last"]
             }
         },
         {
@@ -184,9 +170,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/lscpu/src/lscpu"
-                ]
+                "source_paths": ["src/uu/lscpu/src/lscpu"]
             }
         },
         {
@@ -211,23 +195,17 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/lsipc/src/lsipc"
-                ]
+                "source_paths": ["src/uu/lsipc/src/lsipc"]
             }
         },
         {
             "program_name": "lslocks",
             "program_description": "Lists local system locks held by processes.",
             "c_program": {
-                "source_paths": [
-                    "misc-utils/lslocks.c"
-                ]
+                "source_paths": ["misc-utils/lslocks.c"]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/lslocks/src/lslocks"
-                ]
+                "source_paths": ["src/uu/lslocks/src/lslocks"]
             }
         },
         {
@@ -252,9 +230,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/lsmem/src/lsmem"
-                ]
+                "source_paths": ["src/uu/lsmem/src/lsmem"]
             }
         },
         {
@@ -275,9 +251,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/mcookie/src/mcookie"
-                ]
+                "source_paths": ["src/uu/mcookie/src/mcookie"]
             }
         },
         {
@@ -295,9 +269,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/mesg/src/mesg"
-                ]
+                "source_paths": ["src/uu/mesg/src/mesg"]
             }
         },
         {
@@ -314,9 +286,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/mountpoint/src/mountpoint"
-                ]
+                "source_paths": ["src/uu/mountpoint/src/mountpoint"]
             }
         },
         {
@@ -332,9 +302,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/renice/src/nologin"
-                ]
+                "source_paths": ["src/uu/renice/src/nologin"]
             }
         },
         {
@@ -349,9 +317,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/renice/src/renice"
-                ]
+                "source_paths": ["src/uu/renice/src/renice"]
             }
         },
         {
@@ -369,9 +335,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/rev/src/rev"
-                ]
+                "source_paths": ["src/uu/rev/src/rev"]
             }
         },
         {
@@ -386,9 +350,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/setsid/src/setsid"
-                ]
+                "source_paths": ["src/uu/setsid/src/setsid"]
             }
         },
         {
@@ -407,9 +369,7 @@
                 ]
             },
             "rust_program": {
-                "source_paths": [
-                    "src/uu/uuidgen/src/uuidgen"
-                ]
+                "source_paths": ["src/uu/uuidgen/src/uuidgen"]
             }
         }
     ]
