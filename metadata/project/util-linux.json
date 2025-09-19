@@ -179,7 +179,6 @@
                     "include/sysfs.h",
                     "include/column-list-table.h",
                     "include/fileutils.h",
-                    "include/lscpu.h",
                     "include/strutils.h",
                     "include/strv.h"
                 ]
@@ -195,7 +194,20 @@
             "program_description": "Shows information about active inter-process communication facilities.",
             "c_program": {
                 "source_paths": [
-                    "sys-utils/lsipc.c"
+                    "sys-utils/lsipc.c",
+                    "sys-utils/ipcutils.c",
+                    "sys-utils/ipcutils.h",
+                    "include/c.h",
+                    "include/cctype.h",
+                    "include/nls.h",
+                    "include/closestream.h",
+                    "include/strutils.h",
+                    "include/optutils.h",
+                    "include/xalloc.h",
+                    "include/procfs.h",
+                    "include/timeutils.h",
+                    "include/path.h",
+                    "include/pathnames.h"
                 ]
             },
             "rust_program": {
