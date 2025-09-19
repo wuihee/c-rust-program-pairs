@@ -285,7 +285,13 @@
             "program_description": "Controls write access to your terminal by other users.",
             "c_program": {
                 "source_paths": [
-                    "term-utils/mesg.c"
+                    "term-utils/mesg.c",
+                    "include/closestream.h",
+                    "include/nls.h",
+                    "include/c.h",
+                    "include/rpmatch.h",
+                    "include/ttyutils.h",
+                    "include/pathnames.h"
                 ]
             },
             "rust_program": {
