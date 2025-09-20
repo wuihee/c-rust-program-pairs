@@ -20,12 +20,14 @@
             "program_description": "Display machine architecture",
             "c_program": {
                 "source_paths": [
-                    "src/coreutils-arch.c"
+                    "src/uname.c",
+                    "src/uname-arch.c",
+                    "src/uname.h"
                 ]
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/arch/src/arch.rs"
+                    "src/uu/arch/src/"
                 ]
             }
         },
@@ -39,7 +41,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/base32/src/base32.rs"
+                    "src/uu/base32/src/"
                 ]
             }
         },
@@ -53,7 +55,7 @@
             },
             "rust_program": {
                 "source_paths": [
-                    "src/uu/base64/src/base64.rs"
+                    "src/uu/base64/src/"
                 ]
             }
         },
