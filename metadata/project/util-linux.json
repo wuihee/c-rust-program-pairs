@@ -1,376 +1,376 @@
 {
-    "project_information": {
-        "program_name": "util-linux",
-        "translation_tools": ["manual"],
-        "feature_relationship": "rust_equivalent_to_c",
-        "c_program": {
-            "documentation_url": "https://github.com/util-linux/util-linux/blob/master/Documentation/releases/v2.40-ReleaseNotes",
-            "repository_url": "https://github.com/util-linux/util-linux"
-        },
-        "rust_program": {
-            "documentation_url": "https://github.com/uutils/util-linux/blob/main/README.md",
-            "repository_url": "https://github.com/uutils/util-linux"
-        }
+  "project_information": {
+    "program_name": "util-linux",
+    "translation_tools": ["manual"],
+    "feature_relationship": "rust_equivalent_to_c",
+    "c_program": {
+      "documentation_url": "https://github.com/util-linux/util-linux/blob/master/Documentation/releases/v2.40-ReleaseNotes",
+      "repository_url": "https://github.com/util-linux/util-linux"
     },
-    "pairs": [
-        {
-            "program_name": "blockdev",
-            "program_description": "Performs block device operations such as getting/setting block size, read-only status, and other device parameters.",
-            "c_program": {
-                "source_paths": [
-                    "disk-utils/blockdev.c",
-                    "include/c.h",
-                    "include/nls.h",
-                    "include/blkdev.h",
-                    "include/pathnames.h",
-                    "include/closestream.h",
-                    "include/strutils.h",
-                    "include/sysfs.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/blockdev/src"]
-            }
-        },
-        {
-            "program_name": "chcpu",
-            "program_description": "Configures CPUs by enabling or disabling them on systems that support CPU hotplug.",
-            "c_program": {
-                "source_paths": [
-                    "sys-utils/chcpu.c",
-                    "include/cpuset.h",
-                    "include/nls.h",
-                    "include/xalloc.h",
-                    "include/c.h",
-                    "include/strutils.h",
-                    "include/bitops.h",
-                    "include/path.h",
-                    "include/closestream.h",
-                    "include/optutils.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/chcpu/src"]
-            }
-        },
-        {
-            "program_name": "ctrlaltdel",
-            "program_description": "Sets the function of the Ctrl+Alt+Del key combination.",
-            "c_program": {
-                "source_paths": [
-                    "sys-utils/ctrlaltdel.c",
-                    "include/nls.h",
-                    "include/c.h",
-                    "include/closestream.h",
-                    "include/pathnames.h",
-                    "include/path.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/ctrlaltdel/src"]
-            }
-        },
-        {
-            "program_name": "dmesg",
-            "program_description": "Displays kernel ring buffer messages and system boot messages.",
-            "c_program": {
-                "source_paths": [
-                    "sys-utils/dmesg.c",
-                    "lib/monotonic.c",
-                    "lib/pager.c",
-                    "include/c.h",
-                    "include/cctype.h",
-                    "include/colors.h",
-                    "include/nls.h",
-                    "include/strutils.h",
-                    "include/xalloc.h",
-                    "include/widechar.h",
-                    "include/all-io.h",
-                    "include/bitops.h",
-                    "include/closestream.h",
-                    "include/optutils.h",
-                    "include/timeutils.h",
-                    "include/monotonic.h",
-                    "include/mangle.h",
-                    "include/pager.h",
-                    "include/jsonwrt.h",
-                    "include/pathnames.h",
-                    "include/pager.h",
-                    "include/ttyutils.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/dmesg/src"]
-            }
-        },
-        {
-            "program_name": "fsfreeze",
-            "program_description": "Suspends and resumes access to a filesystem to create consistent snapshots.",
-            "c_program": {
-                "source_paths": [
-                    "sys-utils/fsfreeze.c",
-                    "include/c.h",
-                    "include/blkdev.h",
-                    "include/nls.h",
-                    "include/closestream.h",
-                    "include/optutils.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/fsfreeze/src"]
-            }
-        },
-        {
-            "program_name": "last",
-            "program_description": "Shows a listing of last logged in users and system boot times.",
-            "c_program": {
-                "source_paths": [
-                    "login-utils/last.c",
-                    "lib/monotonic.c",
-                    "include/c.h",
-                    "include/nls.h",
-                    "include/optutils.h",
-                    "include/pathnames.h",
-                    "include/xalloc.h",
-                    "include/closestream.h",
-                    "include/carefulputc.h",
-                    "include/strutils.h",
-                    "include/timeutils.h",
-                    "include/monotonic.h",
-                    "include/fileutils.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/last/src"]
-            }
-        },
-        {
-            "program_name": "lscpu",
-            "program_description": "Displays information about the CPU architecture and processing units.",
-            "c_program": {
-                "source_paths": [
-                    "sys-utils/lscpu.c",
-                    "sys-utils/lscpu-cputype.c",
-                    "sys-utils/lscpu-cpu.c",
-                    "sys-utils/lscpu-topology.c",
-                    "sys-utils/lscpu-virt.c",
-                    "sys-utils/lscpu-arm.c",
-                    "sys-utils/lscpu-dmi.c",
-                    "sys-utils/lscpu-riscv.c",
-                    "sys-utils/lscpu.h",
-                    "include/cctype.h",
-                    "include/closestream.h",
-                    "include/optutils.h",
-                    "include/c_strtod.h",
-                    "include/sysfs.h",
-                    "include/column-list-table.h",
-                    "include/fileutils.h",
-                    "include/strutils.h",
-                    "include/strv.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/lscpu/src"]
-            }
-        },
-        {
-            "program_name": "lsipc",
-            "program_description": "Shows information about active inter-process communication facilities.",
-            "c_program": {
-                "source_paths": [
-                    "sys-utils/lsipc.c",
-                    "sys-utils/ipcutils.c",
-                    "sys-utils/ipcutils.h",
-                    "include/c.h",
-                    "include/cctype.h",
-                    "include/nls.h",
-                    "include/closestream.h",
-                    "include/strutils.h",
-                    "include/optutils.h",
-                    "include/xalloc.h",
-                    "include/procfs.h",
-                    "include/timeutils.h",
-                    "include/path.h",
-                    "include/pathnames.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/lsipc/src"]
-            }
-        },
-        {
-            "program_name": "lslocks",
-            "program_description": "Lists local system locks held by processes.",
-            "c_program": {
-                "source_paths": ["misc-utils/lslocks.c"]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/lslocks/src"]
-            }
-        },
-        {
-            "program_name": "lsmem",
-            "program_description": "Lists the ranges of available memory with their online status.",
-            "c_program": {
-                "source_paths": [
-                    "sys-utils/lsmem.c",
-                    "include/pathnames.h",
-                    "include/canonicalize.h",
-                    "include/nls.h",
-                    "include/xalloc.h",
-                    "include/strutils.h",
-                    "include/c.h",
-                    "include/cctype.h",
-                    "include/list.h",
-                    "include/closestream.h",
-                    "include/optutils.h",
-                    "include/procfs.h",
-                    "include/column-list-table.h",
-                    "include/fileutils.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/lsmem/src"]
-            }
-        },
-        {
-            "program_name": "mcookie",
-            "program_description": "Generates a 128-bit random hexadecimal number for use as a magic cookie by xauth.",
-            "c_program": {
-                "source_paths": [
-                    "misc-utils/mcookie.c",
-                    "lib/md5.c",
-                    "include/c.h",
-                    "include/md5.h",
-                    "include/nls.h",
-                    "include/closestream.h",
-                    "include/randutils.h",
-                    "include/strutils.h",
-                    "include/xalloc.h",
-                    "include/all-io.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/mcookie/src"]
-            }
-        },
-        {
-            "program_name": "mesg",
-            "program_description": "Controls write access to your terminal by other users.",
-            "c_program": {
-                "source_paths": [
-                    "term-utils/mesg.c",
-                    "include/closestream.h",
-                    "include/nls.h",
-                    "include/c.h",
-                    "include/rpmatch.h",
-                    "include/ttyutils.h",
-                    "include/pathnames.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/mesg/src"]
-            }
-        },
-        {
-            "program_name": "mountpoint",
-            "program_description": "Checks whether a directory or file is a mountpoint.",
-            "c_program": {
-                "source_paths": [
-                    "sys-utils/mountpoint.c",
-                    "include/nls.h",
-                    "include/xalloc.h",
-                    "include/c.h",
-                    "include/closestream.h",
-                    "include/pathnames.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/mountpoint/src"]
-            }
-        },
-        {
-            "program_name": "nologin",
-            "program_description": "Displays a message that an account is not available and exits non-zero.",
-            "c_program": {
-                "source_paths": [
-                    "login-utils/nologin.c",
-                    "include/c.h",
-                    "include/nls.h",
-                    "include/pathnames.h",
-                    "include/fileutils.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/renice/src"]
-            }
-        },
-        {
-            "program_name": "renice",
-            "program_description": "Alters the scheduling priority of running processes.",
-            "c_program": {
-                "source_paths": [
-                    "sys-utils/renice.c",
-                    "include/nls.h",
-                    "include/c.h",
-                    "include/closestream.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/renice/src"]
-            }
-        },
-        {
-            "program_name": "rev",
-            "program_description": "Reverses the order of characters in every line of input text.",
-            "c_program": {
-                "source_paths": [
-                    "text-utils/rev.c",
-                    "include/nls.h",
-                    "include/xalloc.h",
-                    "include/widechar.h",
-                    "include/c.h",
-                    "include/closestream.h",
-                    "include/fgetwc_or_err.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/rev/src"]
-            }
-        },
-        {
-            "program_name": "setsid",
-            "program_description": "Runs a program in a new session, detached from the terminal.",
-            "c_program": {
-                "source_paths": [
-                    "sys-utils/setsid.c",
-                    "include/c.h",
-                    "include/nls.h",
-                    "include/closestream.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/setsid/src"]
-            }
-        },
-        {
-            "program_name": "uuidgen",
-            "program_description": "Generates universally unique identifiers (UUIDs).",
-            "c_program": {
-                "source_paths": [
-                    "misc-utils/uuidgen.c",
-                    "libuuid/src/uuid.h",
-                    "include/nls.h",
-                    "include/c.h",
-                    "include/closestream.h",
-                    "include/strutils.h",
-                    "include/optutils.h",
-                    "include/xalloc.h"
-                ]
-            },
-            "rust_program": {
-                "source_paths": ["src/uu/uuidgen/src"]
-            }
-        }
-    ]
+    "rust_program": {
+      "documentation_url": "https://github.com/uutils/util-linux/blob/main/README.md",
+      "repository_url": "https://github.com/uutils/util-linux"
+    }
+  },
+  "pairs": [
+    {
+      "program_name": "blockdev",
+      "program_description": "Performs block device operations such as getting/setting block size, read-only status, and other device parameters.",
+      "c_program": {
+        "source_paths": [
+          "disk-utils/blockdev.c",
+          "include/c.h",
+          "include/nls.h",
+          "include/blkdev.h",
+          "include/pathnames.h",
+          "include/closestream.h",
+          "include/strutils.h",
+          "include/sysfs.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/blockdev/src"]
+      }
+    },
+    {
+      "program_name": "chcpu",
+      "program_description": "Configures CPUs by enabling or disabling them on systems that support CPU hotplug.",
+      "c_program": {
+        "source_paths": [
+          "sys-utils/chcpu.c",
+          "include/cpuset.h",
+          "include/nls.h",
+          "include/xalloc.h",
+          "include/c.h",
+          "include/strutils.h",
+          "include/bitops.h",
+          "include/path.h",
+          "include/closestream.h",
+          "include/optutils.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/chcpu/src"]
+      }
+    },
+    {
+      "program_name": "ctrlaltdel",
+      "program_description": "Sets the function of the Ctrl+Alt+Del key combination.",
+      "c_program": {
+        "source_paths": [
+          "sys-utils/ctrlaltdel.c",
+          "include/nls.h",
+          "include/c.h",
+          "include/closestream.h",
+          "include/pathnames.h",
+          "include/path.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/ctrlaltdel/src"]
+      }
+    },
+    {
+      "program_name": "dmesg",
+      "program_description": "Displays kernel ring buffer messages and system boot messages.",
+      "c_program": {
+        "source_paths": [
+          "sys-utils/dmesg.c",
+          "lib/monotonic.c",
+          "lib/pager.c",
+          "include/c.h",
+          "include/cctype.h",
+          "include/colors.h",
+          "include/nls.h",
+          "include/strutils.h",
+          "include/xalloc.h",
+          "include/widechar.h",
+          "include/all-io.h",
+          "include/bitops.h",
+          "include/closestream.h",
+          "include/optutils.h",
+          "include/timeutils.h",
+          "include/monotonic.h",
+          "include/mangle.h",
+          "include/pager.h",
+          "include/jsonwrt.h",
+          "include/pathnames.h",
+          "include/pager.h",
+          "include/ttyutils.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/dmesg/src"]
+      }
+    },
+    {
+      "program_name": "fsfreeze",
+      "program_description": "Suspends and resumes access to a filesystem to create consistent snapshots.",
+      "c_program": {
+        "source_paths": [
+          "sys-utils/fsfreeze.c",
+          "include/c.h",
+          "include/blkdev.h",
+          "include/nls.h",
+          "include/closestream.h",
+          "include/optutils.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/fsfreeze/src"]
+      }
+    },
+    {
+      "program_name": "last",
+      "program_description": "Shows a listing of last logged in users and system boot times.",
+      "c_program": {
+        "source_paths": [
+          "login-utils/last.c",
+          "lib/monotonic.c",
+          "include/c.h",
+          "include/nls.h",
+          "include/optutils.h",
+          "include/pathnames.h",
+          "include/xalloc.h",
+          "include/closestream.h",
+          "include/carefulputc.h",
+          "include/strutils.h",
+          "include/timeutils.h",
+          "include/monotonic.h",
+          "include/fileutils.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/last/src"]
+      }
+    },
+    {
+      "program_name": "lscpu",
+      "program_description": "Displays information about the CPU architecture and processing units.",
+      "c_program": {
+        "source_paths": [
+          "sys-utils/lscpu.c",
+          "sys-utils/lscpu-cputype.c",
+          "sys-utils/lscpu-cpu.c",
+          "sys-utils/lscpu-topology.c",
+          "sys-utils/lscpu-virt.c",
+          "sys-utils/lscpu-arm.c",
+          "sys-utils/lscpu-dmi.c",
+          "sys-utils/lscpu-riscv.c",
+          "sys-utils/lscpu.h",
+          "include/cctype.h",
+          "include/closestream.h",
+          "include/optutils.h",
+          "include/c_strtod.h",
+          "include/sysfs.h",
+          "include/column-list-table.h",
+          "include/fileutils.h",
+          "include/strutils.h",
+          "include/strv.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/lscpu/src"]
+      }
+    },
+    {
+      "program_name": "lsipc",
+      "program_description": "Shows information about active inter-process communication facilities.",
+      "c_program": {
+        "source_paths": [
+          "sys-utils/lsipc.c",
+          "sys-utils/ipcutils.c",
+          "sys-utils/ipcutils.h",
+          "include/c.h",
+          "include/cctype.h",
+          "include/nls.h",
+          "include/closestream.h",
+          "include/strutils.h",
+          "include/optutils.h",
+          "include/xalloc.h",
+          "include/procfs.h",
+          "include/timeutils.h",
+          "include/path.h",
+          "include/pathnames.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/lsipc/src"]
+      }
+    },
+    {
+      "program_name": "lslocks",
+      "program_description": "Lists local system locks held by processes.",
+      "c_program": {
+        "source_paths": ["misc-utils/lslocks.c"]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/lslocks/src"]
+      }
+    },
+    {
+      "program_name": "lsmem",
+      "program_description": "Lists the ranges of available memory with their online status.",
+      "c_program": {
+        "source_paths": [
+          "sys-utils/lsmem.c",
+          "include/pathnames.h",
+          "include/canonicalize.h",
+          "include/nls.h",
+          "include/xalloc.h",
+          "include/strutils.h",
+          "include/c.h",
+          "include/cctype.h",
+          "include/list.h",
+          "include/closestream.h",
+          "include/optutils.h",
+          "include/procfs.h",
+          "include/column-list-table.h",
+          "include/fileutils.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/lsmem/src"]
+      }
+    },
+    {
+      "program_name": "mcookie",
+      "program_description": "Generates a 128-bit random hexadecimal number for use as a magic cookie by xauth.",
+      "c_program": {
+        "source_paths": [
+          "misc-utils/mcookie.c",
+          "lib/md5.c",
+          "include/c.h",
+          "include/md5.h",
+          "include/nls.h",
+          "include/closestream.h",
+          "include/randutils.h",
+          "include/strutils.h",
+          "include/xalloc.h",
+          "include/all-io.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/mcookie/src"]
+      }
+    },
+    {
+      "program_name": "mesg",
+      "program_description": "Controls write access to your terminal by other users.",
+      "c_program": {
+        "source_paths": [
+          "term-utils/mesg.c",
+          "include/closestream.h",
+          "include/nls.h",
+          "include/c.h",
+          "include/rpmatch.h",
+          "include/ttyutils.h",
+          "include/pathnames.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/mesg/src"]
+      }
+    },
+    {
+      "program_name": "mountpoint",
+      "program_description": "Checks whether a directory or file is a mountpoint.",
+      "c_program": {
+        "source_paths": [
+          "sys-utils/mountpoint.c",
+          "include/nls.h",
+          "include/xalloc.h",
+          "include/c.h",
+          "include/closestream.h",
+          "include/pathnames.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/mountpoint/src"]
+      }
+    },
+    {
+      "program_name": "nologin",
+      "program_description": "Displays a message that an account is not available and exits non-zero.",
+      "c_program": {
+        "source_paths": [
+          "login-utils/nologin.c",
+          "include/c.h",
+          "include/nls.h",
+          "include/pathnames.h",
+          "include/fileutils.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/renice/src"]
+      }
+    },
+    {
+      "program_name": "renice",
+      "program_description": "Alters the scheduling priority of running processes.",
+      "c_program": {
+        "source_paths": [
+          "sys-utils/renice.c",
+          "include/nls.h",
+          "include/c.h",
+          "include/closestream.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/renice/src"]
+      }
+    },
+    {
+      "program_name": "rev",
+      "program_description": "Reverses the order of characters in every line of input text.",
+      "c_program": {
+        "source_paths": [
+          "text-utils/rev.c",
+          "include/nls.h",
+          "include/xalloc.h",
+          "include/widechar.h",
+          "include/c.h",
+          "include/closestream.h",
+          "include/fgetwc_or_err.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/rev/src"]
+      }
+    },
+    {
+      "program_name": "setsid",
+      "program_description": "Runs a program in a new session, detached from the terminal.",
+      "c_program": {
+        "source_paths": [
+          "sys-utils/setsid.c",
+          "include/c.h",
+          "include/nls.h",
+          "include/closestream.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/setsid/src"]
+      }
+    },
+    {
+      "program_name": "uuidgen",
+      "program_description": "Generates universally unique identifiers (UUIDs).",
+      "c_program": {
+        "source_paths": [
+          "misc-utils/uuidgen.c",
+          "libuuid/src/uuid.h",
+          "include/nls.h",
+          "include/c.h",
+          "include/closestream.h",
+          "include/strutils.h",
+          "include/optutils.h",
+          "include/xalloc.h"
+        ]
+      },
+      "rust_program": {
+        "source_paths": ["src/uu/uuidgen/src"]
+      }
+    }
+  ]
 }
