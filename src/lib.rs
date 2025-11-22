@@ -2,6 +2,7 @@
 
 mod cli;
 mod corpus;
+mod metadata;
 mod paths;
 
 use clap::Parser;
