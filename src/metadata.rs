@@ -1,3 +1,30 @@
 //! # Metadata
 //!
-//! This module automates filling out parts of the JSON metadata files.
+//! This module automates the process of finding source files for C programs
+//! for metadata files.
+
+use std::path::PathBuf;
+
+/// Get a list of .c and .h source files for a C program.
+///
+/// # Arguments
+///
+/// - `program_name`: The name of the C program.
+/// - `repository`: The path of the repository in `repository_clones` to
+///                 search; this requires the repository to be downloaded.
+///
+/// # Returns
+///
+/// A `Vector` containing the path to all .c and .h source files, relative to
+/// the path of the repository.
+pub fn get_c_source_files(program_name: &str, repository: PathBuf) -> Vec<String> {
+    let mut source_files: Vec<String> = Vec::new();
+
+    // For each file in the repository, if it is a makefile.am, search it.
+    // Find the string that matches {program_name}_SOURCES.
+    // This should return a space-separated line of .c programs.
+    // For each of these c programs, find it in the repository, and
+    // recursively search for all other dependencies.
+
+    source_files
+}
