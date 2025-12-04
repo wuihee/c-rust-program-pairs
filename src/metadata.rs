@@ -5,6 +5,8 @@
 
 use std::path::PathBuf;
 
+use walkdir::WalkDir;
+
 /// Get a list of .c and .h source files for a C program.
 ///
 /// # Arguments
@@ -27,4 +29,29 @@ pub fn get_c_source_files(program_name: &str, repository: PathBuf) -> Vec<String
     // recursively search for all other dependencies.
 
     source_files
+}
+
+/// Find a list of files in a directory.
+///
+/// # Arguments
+///
+/// - `file_name`: The name of the file to find.
+/// - `directory`: The directory to search in.
+///
+/// # Returns
+///
+/// A `Vector` containing `PathBuf`s of all file matches.
+fn find_file(file_name: &str, directory: PathBuf) -> Vec<PathBuf> {
+    WalkDir::new(directory)
+        .into_iter()
+        .filter_map(|entry| entry.ok())
+        .filter(|entry| {
+            entry
+                .file_name()
+                .to_str()
+                .map(|name| name == file_name)
+                .unwrap_or(false)
+        })
+        .map(|entry| entry.path().to_path_buf())
+        .collect()
 }
