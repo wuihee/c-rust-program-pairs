@@ -3,6 +3,8 @@
 //! This module defines the data structures used to parse command line
 //! arguments when running the program.
 
+use std::path::PathBuf;
+
 use clap::{Parser, Subcommand};
 
 /// This struct represents the top-level CLI entry point for the tool.
@@ -24,4 +26,15 @@ pub enum Commands {
 
     /// Delete the `program_pairs` and `repository_clones` directories.
     Delete,
+
+    /// Extract metadata for a program.
+    Metadata {
+        /// The program name, e.g., "ripgrep"
+        #[arg()]
+        program_name: String,
+
+        /// Path to the repository directory
+        #[arg()]
+        repository: PathBuf,
+    },
 }

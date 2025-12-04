@@ -23,5 +23,11 @@ pub fn run() {
             corpus::download_program_pairs(false).expect("Failed to download program pairs")
         }
         Some(Commands::Delete) => corpus::delete().expect("Failed to delete directories"),
+        Some(Commands::Metadata {
+            program_name,
+            repository,
+        }) => {
+            metadata::get_c_source_files(&program_name, repository);
+        }
     }
 }

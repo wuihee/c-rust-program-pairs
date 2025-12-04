@@ -22,6 +22,9 @@ use walkdir::WalkDir;
 pub fn get_c_source_files(program_name: &str, repository: PathBuf) -> Vec<String> {
     let mut source_files: Vec<String> = Vec::new();
 
+    let makefiles = find_file("Makefile.am", repository);
+    println!("{makefiles:?}");
+
     // For each file in the repository, if it is a makefile.am, search it.
     // Find the string that matches {program_name}_SOURCES.
     // This should return a space-separated line of .c programs.
