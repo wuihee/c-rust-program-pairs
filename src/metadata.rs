@@ -5,7 +5,8 @@
 
 use std::{
     error::Error,
-    fs,
+    fs::File,
+    io::{self, BufRead, BufReader, Lines},
     path::{Path, PathBuf},
 };
 
@@ -27,13 +28,18 @@ pub fn get_c_source_files(
     program_name: &str,
     repository: &Path,
 ) -> Result<Vec<String>, Box<dyn Error>> {
-    let mut source_files: Vec<String> = Vec::new();
+    let source_files: Vec<String> = Vec::new();
     let makefiles = find_file("Makefile.am", repository);
+    let to_check = format!("{program_name}_SOURCES");
 
-    for makefile in makefiles {
-        let contents = fs::read_to_string(makefile)?;
-        let to_search_for = format!("{program_name}_SOURCES");
-        let index = contents.find(&to_search_for);
+    for file in makefiles {
+        let Ok(lines) = read_lines(&file) else {
+            eprintln!("Failed to read {file:?}");
+            continue;
+        };
+
+        let lines = lines.filter_map(Result::ok);
+        let normalized = normalize_makefile(lines);
     }
 
     // For each file in the repository, if it is a makefile.am, search it.
@@ -68,4 +74,59 @@ fn find_file(file_name: &str, directory: &Path) -> Vec<PathBuf> {
         })
         .map(|entry| entry.path().to_path_buf())
         .collect()
+}
+
+/// Returns an iterator over the lines of a file.
+///
+/// # Arguments
+///
+/// - `file_name`: The path to the file.
+///
+/// # Returns
+///
+/// An iterator yielding each line of the file.
+fn read_lines<P>(file_name: P) -> io::Result<Lines<BufReader<File>>>
+where
+    P: AsRef<Path>,
+{
+    let file = File::open(file_name)?;
+    Ok(BufReader::new(file).lines())
+}
+
+/// Normalizes Makefile line continuations.
+///
+/// Lines ending with `\` are concatenated with the following lines, producing
+/// one logical line per continuation group.
+///
+/// # Arguments
+///
+/// - `line`: An iterator over raw lines from a Makefile.
+///
+/// # Returns
+///
+/// A vector of logical lines with continuation markers removed.
+fn normalize_makefile<I>(lines: I) -> Vec<String>
+where
+    I: Iterator<Item = String>,
+{
+    let mut result = Vec::new();
+    let mut current = String::new();
+
+    for line in lines {
+        let trimmed = line.trim_end();
+
+        if trimmed.ends_with('\\') {
+            current.push_str(trimmed.trim_end_matches('\\'));
+        } else {
+            current.push_str(trimmed);
+            result.push(current.clone());
+            current.clear();
+        }
+    }
+
+    if !current.is_empty() {
+        result.push(current);
+    }
+
+    result
 }

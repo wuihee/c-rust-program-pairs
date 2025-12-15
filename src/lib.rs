@@ -27,7 +27,8 @@ pub fn run() {
             program_name,
             repository,
         }) => {
-            metadata::get_c_source_files(&program_name, &repository);
+            metadata::get_c_source_files(&program_name, &repository)
+                .expect(&format!("Failed to find source files for '{program_name}'"));
         }
     }
 }
