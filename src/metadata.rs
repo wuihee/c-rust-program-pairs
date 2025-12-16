@@ -30,16 +30,14 @@ pub fn get_c_source_files(
 ) -> Result<Vec<String>, Box<dyn Error>> {
     let source_files: Vec<String> = Vec::new();
     let makefiles = find_file("Makefile.am", repository);
-    let to_check = format!("{program_name}_SOURCES");
 
-    for file in makefiles {
-        let Ok(lines) = read_lines(&file) else {
-            eprintln!("Failed to read {file:?}");
-            continue;
-        };
+    for makefile_path in makefiles {
+        let files = get_source_files_from_makefile(repository, &makefile_path, program_name);
+        println!("{files:?}")
 
-        let lines = lines.filter_map(Result::ok);
-        let normalized = normalize_makefile(lines);
+        // for file in files {
+        //     update_source_files(&source_files, file);
+        // }
     }
 
     // For each file in the repository, if it is a makefile.am, search it.
@@ -61,7 +59,10 @@ pub fn get_c_source_files(
 /// # Returns
 ///
 /// A `Vector` containing `PathBuf`s of all file matches.
-fn find_file(file_name: &str, directory: &Path) -> Vec<PathBuf> {
+fn find_file<P>(file_name: &str, directory: P) -> Vec<PathBuf>
+where
+    P: AsRef<Path>,
+{
     WalkDir::new(directory)
         .into_iter()
         .filter_map(|entry| entry.ok())
@@ -73,6 +74,42 @@ fn find_file(file_name: &str, directory: &Path) -> Vec<PathBuf> {
                 .unwrap_or(false)
         })
         .map(|entry| entry.path().to_path_buf())
+        .collect()
+}
+
+/// Retrieves a list of source files for a program from a Makefile.
+///
+/// # Arguments
+///
+/// - `repository`: Path to the repository in `repository_clones`.
+/// - `makefile_path`: Path to the Makefile to search.
+/// - `program_name`: Name of the program to find source files.
+///
+/// # Returns
+///
+/// A `Vec` of paths to the source files for `program_name` as described in
+/// the Makefile.
+fn get_source_files_from_makefile(
+    repository: &Path,
+    makefile_path: &Path,
+    program_name: &str,
+) -> Vec<PathBuf> {
+    let lines = match read_lines(makefile_path) {
+        Ok(lines) => lines,
+        Err(_) => return Vec::new(),
+    };
+
+    let sources_key = format!("{program_name}_SOURCES");
+
+    normalize_makefile(lines.filter_map(Result::ok))
+        .iter()
+        .filter(|line| line.starts_with(&sources_key))
+        .flat_map(|line| {
+            line.split_whitespace()
+                .skip(2)
+                .flat_map(|file| find_file(file, repository))
+                .map(|path| path.to_path_buf())
+        })
         .collect()
 }
 
