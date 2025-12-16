@@ -109,24 +109,24 @@ fn normalize_makefile<I>(lines: I) -> Vec<String>
 where
     I: Iterator<Item = String>,
 {
-    let mut result = Vec::new();
-    let mut current = String::new();
+    let mut normalized = Vec::new();
+    let mut continued_line = String::new();
 
     for line in lines {
         let trimmed = line.trim_end();
 
         if trimmed.ends_with('\\') {
-            current.push_str(trimmed.trim_end_matches('\\'));
+            continued_line.push_str(trimmed.trim_end_matches('\\'));
         } else {
-            current.push_str(trimmed);
-            result.push(current.clone());
-            current.clear();
+            continued_line.push_str(trimmed);
+            normalized.push(continued_line.clone());
+            continued_line.clear();
         }
     }
 
-    if !current.is_empty() {
-        result.push(current);
+    if !continued_line.is_empty() {
+        normalized.push(continued_line);
     }
 
-    result
+    normalized
 }
