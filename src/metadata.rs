@@ -31,7 +31,10 @@ pub fn get_c_source_files(
 ) -> Result<HashSet<PathBuf>, Box<dyn Error>> {
     let mut source_files: HashSet<PathBuf> = HashSet::new();
 
-    let makefiles = find_file("Makefile.am", repository);
+    let makefiles: Vec<PathBuf> = ["Makefile.am", "local.mk"]
+        .into_iter()
+        .flat_map(|f| find_file(f, repository))
+        .collect();
 
     for makefile_path in makefiles {
         let makefile_sources =
@@ -104,6 +107,8 @@ fn get_source_files_from_makefile(
         .filter(|line| line.starts_with(&sources_key))
         .flat_map(|line| {
             line.split_whitespace()
+                // skip 2 because our line will look like
+                // ["diff_SOURCES", "=", "file1.c", ...]
                 .skip(2)
                 .flat_map(|file| find_file(file, repository))
                 .map(|path| path.to_path_buf())
