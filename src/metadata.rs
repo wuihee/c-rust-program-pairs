@@ -4,6 +4,7 @@
 //! for metadata files.
 
 use std::{
+    collections::HashSet,
     error::Error,
     fs::File,
     io::{self, BufRead, BufReader, Lines},
@@ -27,24 +28,21 @@ use walkdir::WalkDir;
 pub fn get_c_source_files(
     program_name: &str,
     repository: &Path,
-) -> Result<Vec<String>, Box<dyn Error>> {
-    let source_files: Vec<String> = Vec::new();
+) -> Result<HashSet<PathBuf>, Box<dyn Error>> {
+    let mut source_files: HashSet<PathBuf> = HashSet::new();
+
     let makefiles = find_file("Makefile.am", repository);
 
     for makefile_path in makefiles {
-        let files = get_source_files_from_makefile(repository, &makefile_path, program_name);
-        println!("{files:?}")
+        let makefile_sources =
+            get_source_files_from_makefile(repository, &makefile_path, program_name);
 
-        // for file in files {
-        //     update_source_files(&source_files, file);
-        // }
+        for path in makefile_sources {
+            collect_source_files(repository, &mut source_files, &path)?;
+        }
     }
 
-    // For each file in the repository, if it is a makefile.am, search it.
-    // Find the string that matches {program_name}_SOURCES.
-    // This should return a space-separated line of .c programs.
-    // For each of these c programs, find it in the repository, and
-    // recursively search for all other dependencies.
+    println!("source_files = {:#?}", source_files);
 
     Ok(source_files)
 }
@@ -166,4 +164,42 @@ where
     }
 
     normalized
+}
+
+/// Recursively collects all source files starting from a single .c or .h
+/// file.
+///
+/// # Arguments
+///
+/// - `repository`: Path to the repository in `repository_clones`.
+/// - `visited`: A set of source files continuously updated.
+/// - `root`: The starting source file to search from.
+///
+/// # Returns
+///
+/// `Ok` on success or `Err` otherwise.
+fn collect_source_files(
+    repository: &Path,
+    visited: &mut HashSet<PathBuf>,
+    root: &Path,
+) -> Result<(), Box<dyn Error>> {
+    let relative_path = root.strip_prefix(repository)?.to_path_buf();
+
+    if !visited.insert(relative_path) {
+        return Ok(());
+    }
+
+    for line in read_lines(root)?.flatten() {
+        let include = line
+            .strip_prefix("#include \"")
+            .and_then(|s| s.strip_suffix('"'));
+
+        if let Some(file_name) = include {
+            for path in find_file(file_name, repository) {
+                collect_source_files(repository, visited, &path)?;
+            }
+        }
+    }
+
+    Ok(())
 }
