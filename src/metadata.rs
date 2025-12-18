@@ -31,7 +31,8 @@ pub fn get_c_source_files(
 ) -> Result<HashSet<PathBuf>, Box<dyn Error>> {
     let mut source_files: HashSet<PathBuf> = HashSet::new();
 
-    let makefiles: Vec<PathBuf> = ["Makefile.am", "local.mk"]
+    // TODO: Instead of finding Makefiles, find in every file?
+    let makefiles: Vec<PathBuf> = ["Makefile.am", "local.mk", "Makemodule.am"]
         .into_iter()
         .flat_map(|f| find_file(f, repository))
         .collect();
@@ -97,19 +98,38 @@ fn get_source_files_from_makefile(
 ) -> Vec<PathBuf> {
     let lines = match read_lines(makefile_path) {
         Ok(lines) => lines,
-        Err(_) => return Vec::new(),
+        Err(_) => {
+            eprintln!("Failed to read makefile");
+            return Vec::new();
+        }
     };
 
     let sources_key = format!("{program_name}_SOURCES");
 
+    // normalize_makefile(lines.filter_map(Result::ok))
+    //     .iter()
+    //     .filter(|line| line.starts_with(&sources_key))
+    //     .for_each(|f| println!("{f:?}"));
+
+    // Vec::new()
+
+    // TODO: Refactor this
     normalize_makefile(lines.filter_map(Result::ok))
         .iter()
-        .filter(|line| line.starts_with(&sources_key))
+        .filter(|line| line.contains(&sources_key))
         .flat_map(|line| {
             line.split_whitespace()
                 // skip 2 because our line will look like
                 // ["diff_SOURCES", "=", "file1.c", ...]
                 .skip(2)
+                // Get file name.
+                .map(|file| {
+                    Path::new(file)
+                        .file_name()
+                        .and_then(|s| s.to_str())
+                        .unwrap()
+                })
+                // Search repo for file.
                 .flat_map(|file| find_file(file, repository))
                 .map(|path| path.to_path_buf())
         })
