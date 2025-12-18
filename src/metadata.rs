@@ -31,7 +31,6 @@ pub fn get_c_source_files(
 ) -> Result<HashSet<PathBuf>, Box<dyn Error>> {
     let mut source_files: HashSet<PathBuf> = HashSet::new();
 
-    // TODO: Instead of finding Makefiles, find in every file?
     let makefiles: Vec<PathBuf> = ["Makefile.am", "local.mk", "Makemodule.am"]
         .into_iter()
         .flat_map(|f| find_file(f, repository))
@@ -105,13 +104,6 @@ fn get_source_files_from_makefile(
     };
 
     let sources_key = format!("{program_name}_SOURCES");
-
-    // normalize_makefile(lines.filter_map(Result::ok))
-    //     .iter()
-    //     .filter(|line| line.starts_with(&sources_key))
-    //     .for_each(|f| println!("{f:?}"));
-
-    // Vec::new()
 
     // TODO: Refactor this
     normalize_makefile(lines.filter_map(Result::ok))
