@@ -105,27 +105,50 @@ fn get_source_files_from_makefile(
 
     let sources_key = format!("{program_name}_SOURCES");
 
-    // TODO: Refactor this
     normalize_makefile(lines.filter_map(Result::ok))
         .iter()
         .filter(|line| line.contains(&sources_key))
-        .flat_map(|line| {
-            line.split_whitespace()
-                // skip 2 because our line will look like
-                // ["diff_SOURCES", "=", "file1.c", ...]
-                .skip(2)
-                // Get file name.
-                .map(|file| {
-                    Path::new(file)
-                        .file_name()
-                        .and_then(|s| s.to_str())
-                        .unwrap()
-                })
-                // Search repo for file.
-                .flat_map(|file| find_file(file, repository))
-                .map(|path| path.to_path_buf())
-        })
+        .flat_map(|line| get_paths_from_line(line, repository))
         .collect()
+}
+
+/// Helper function to turn a line 'program_SOURCES = f1.c f2.c ...' into
+/// an iterator containing f1.c, f2.c, ...
+///
+/// # Arguments
+///
+/// - `line`: The line in a Makefile containing a program's source files.
+/// - `repository`: Path to the program's repository in `repository_clones`.
+///
+/// # Returns
+///
+/// An interator containing the program's source file paths.
+fn get_paths_from_line(line: &str, repository: &Path) -> impl Iterator<Item = PathBuf> {
+    line.split_whitespace()
+        .skip(2)
+        .map(path_to_file_name)
+        .flat_map(move |file| find_file(file, repository))
+        .map(|path| path.to_path_buf())
+}
+
+/// Helper method which takes a path and returns the file name.
+///
+/// # Arguments
+///
+/// - `file`: Path to the file.
+///
+/// # Returns
+///
+/// The final file name in the path.
+///
+/// # Example
+///
+/// `path/to/file.txt` returns `file.txt`.
+fn path_to_file_name(file: &str) -> &str {
+    Path::new(file)
+        .file_name()
+        .and_then(|file_name| file_name.to_str())
+        .unwrap()
 }
 
 /// Returns an iterator over the lines of a file.
