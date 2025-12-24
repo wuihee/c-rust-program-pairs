@@ -1,7 +1,7 @@
 //! # Metadata
 //!
-//! This module automates the process of finding source files for C programs
-//! for metadata files.
+//! This module automates the process of afinding and updating source files
+//! for programs for metadata files.
 
 use std::{
     collections::HashSet,
@@ -12,6 +12,32 @@ use std::{
 };
 
 use walkdir::WalkDir;
+
+use crate::corpus;
+
+#[allow(dead_code)] // TODO: Remove
+pub fn update_metadata_file(repository: &Path) -> Result<(), Box<dyn Error>> {
+    let mut metadata = corpus::parse(repository)?;
+
+    // TODO: Do I implement this logic in the struct? Would this violate
+    // single-responsibility?
+    for pair in metadata.pairs.iter_mut() {
+        pair.c_program.source_paths = get_c_source_files(&pair.program_name, repository)?
+            .into_iter()
+            .map(|f| f.to_str().unwrap().to_string())
+            .collect();
+    }
+
+    // Where should the `write_back` function to update metadata files be?
+    //   1. corpus module: already has the `parse` function so kinda makes
+    //      sense.
+    //   2. metadata module: the whole point of this module is to update
+    //      metadata
+
+    println!("{metadata:#?}");
+
+    Ok(())
+}
 
 /// Get a list of .c and .h source files for a C program.
 ///
@@ -44,8 +70,6 @@ pub fn get_c_source_files(
             collect_source_files(repository, &mut source_files, &path)?;
         }
     }
-
-    println!("source_files = {:#?}", source_files);
 
     Ok(source_files)
 }
