@@ -6,6 +6,10 @@ use std::{io, path::PathBuf};
 
 use thiserror;
 
+/// Errors that occur when a metadata file is being written to.
+#[derive(thiserror::Error, Debug)]
+pub enum WriterError {}
+
 /// Errors that occur when a metadata file is being parsed.
 #[derive(thiserror::Error, Debug)]
 pub enum ParserError {
