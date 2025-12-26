@@ -19,8 +19,6 @@ use crate::corpus;
 pub fn update_metadata_file(repository: &Path) -> Result<(), Box<dyn Error>> {
     let mut metadata = corpus::parse(repository)?;
 
-    // TODO: Do I implement this logic in the struct? Would this violate
-    // single-responsibility?
     for pair in metadata.pairs.iter_mut() {
         pair.c_program.source_paths = get_c_source_files(&pair.program_name, repository)?
             .into_iter()
@@ -28,12 +26,7 @@ pub fn update_metadata_file(repository: &Path) -> Result<(), Box<dyn Error>> {
             .collect();
     }
 
-    // Where should the `write_back` function to update metadata files be?
-    //   1. corpus module: already has the `parse` function so kinda makes
-    //      sense.
-    //   2. metadata module: the whole point of this module is to update
-    //      metadata
-
+    // TODO: Call a `write_back` function to update the metadata files.
     println!("{metadata:#?}");
 
     Ok(())

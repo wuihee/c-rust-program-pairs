@@ -9,6 +9,7 @@ mod metadata_structs;
 pub mod parser;
 pub mod schema;
 mod utils;
+pub mod writer;
 
 pub use delete::delete;
 pub use downloader::download_program_pairs;
