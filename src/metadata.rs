@@ -13,10 +13,10 @@ use std::{
 
 use walkdir::WalkDir;
 
-use crate::corpus;
+use crate::corpus::{self, writer::write_metadata};
 
-#[allow(dead_code)] // TODO: Remove
 pub fn update_metadata_file(repository: &Path) -> Result<(), Box<dyn Error>> {
+    let metadata_path = repository.join("metadata.json");
     let mut metadata = corpus::parse(repository)?;
 
     for pair in metadata.pairs.iter_mut() {
@@ -26,8 +26,10 @@ pub fn update_metadata_file(repository: &Path) -> Result<(), Box<dyn Error>> {
             .collect();
     }
 
-    // TODO: Call a `write_back` function to update the metadata files.
-    println!("{metadata:#?}");
+    // Write the updated metadata back to the file
+    write_metadata(&metadata_path, &metadata)?;
+
+    println!("Successfully updated metadata at: {}", metadata_path.display());
 
     Ok(())
 }

@@ -8,7 +8,33 @@ use thiserror;
 
 /// Errors that occur when a metadata file is being written to.
 #[derive(thiserror::Error, Debug)]
-pub enum WriterError {}
+pub enum WriterError {
+    /// Failed to write to a file.
+    #[error("Failed to write to '{path}': {error}")]
+    IoWrite {
+        /// The path of the file that could not be written to.
+        path: PathBuf,
+
+        /// The underlying I/O error.
+        #[source]
+        error: io::Error,
+    },
+
+    /// Faile to serialize some struct to JSON.
+    #[error("Failed to serialize to JSON: {error}")]
+    Serialize {
+        /// The underlying serialization error.
+        #[source]
+        error: serde_json::Error,
+    },
+
+    /// Failed to convert metadata to schema format.
+    #[error("Failed to convert metadata: {message}")]
+    Conversion {
+        /// Description of the conversion error.
+        message: String,
+    },
+}
 
 /// Errors that occur when a metadata file is being parsed.
 #[derive(thiserror::Error, Debug)]
