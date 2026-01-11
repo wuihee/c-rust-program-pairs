@@ -15,9 +15,28 @@ use walkdir::WalkDir;
 
 use crate::corpus::{self, writer::write_metadata};
 
-pub fn update_metadata_file(repository: &Path) -> Result<(), Box<dyn Error>> {
-    let metadata_path = repository.join("metadata.json");
-    let mut metadata = corpus::parse(repository)?;
+/// TODO:
+/// For some reason, the metadata changes when updated, but it's being updated which is good!
+/// Ensure the output is correct.
+/// Check code that Claude wrote.
+/// Better return errors instead of Box<dyn>
+
+/// Update the .c and .h source files for all programs in a single metadata
+/// file.
+///
+/// TODO: This API doesn't support a single metadata file with multiple
+/// repositories.
+///
+/// # Arguments
+///
+/// - `metadata_file`: The path to the metadata file; in `metadata/`.
+/// - `repository`: The program's repository; in `repository_clones/`.
+///
+/// # Returns
+///
+/// `Ok` on success or `Err` if the metadata file failed to be updated.
+pub fn update_metadata_file(metadata_file: &Path, repository: &Path) -> Result<(), Box<dyn Error>> {
+    let mut metadata = corpus::parse(metadata_file)?;
 
     for pair in metadata.pairs.iter_mut() {
         pair.c_program.source_paths = get_c_source_files(&pair.program_name, repository)?
@@ -26,10 +45,7 @@ pub fn update_metadata_file(repository: &Path) -> Result<(), Box<dyn Error>> {
             .collect();
     }
 
-    // Write the updated metadata back to the file
-    write_metadata(&metadata_path, &metadata)?;
-
-    println!("Successfully updated metadata at: {}", metadata_path.display());
+    write_metadata(metadata_file, &metadata)?;
 
     Ok(())
 }

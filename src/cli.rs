@@ -31,7 +31,7 @@ pub enum Commands {
     Metadata {
         /// The program name, e.g., "ripgrep"
         #[arg()]
-        program_name: String,
+        file: PathBuf,
 
         /// Path to the repository directory
         #[arg()]
