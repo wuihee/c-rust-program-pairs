@@ -13,39 +13,46 @@ use std::{
 
 use walkdir::WalkDir;
 
-use crate::corpus::{self, writer::write_metadata};
+use crate::{corpus, paths::REPOSITORY_CLONES_DIRECTORY};
 
 /// TODO:
 /// For some reason, the metadata changes when updated, but it's being updated which is good!
 /// Ensure the output is correct.
 /// Check code that Claude wrote.
-/// Better return errors instead of Box<dyn>
+/// How do I deal with multiple different error enums?
 
 /// Update the .c and .h source files for all programs in a single metadata
 /// file.
 ///
-/// TODO: This API doesn't support a single metadata file with multiple
-/// repositories.
-///
 /// # Arguments
 ///
 /// - `metadata_file`: The path to the metadata file; in `metadata/`.
-/// - `repository`: The program's repository; in `repository_clones/`.
 ///
 /// # Returns
 ///
 /// `Ok` on success or `Err` if the metadata file failed to be updated.
-pub fn update_metadata_file(metadata_file: &Path, repository: &Path) -> Result<(), Box<dyn Error>> {
+pub fn update_metadata_file(metadata_file: &Path) -> Result<(), Box<dyn Error>> {
     let mut metadata = corpus::parse(metadata_file)?;
 
+    println!("{metadata:#?}");
+    println!();
+
     for pair in metadata.pairs.iter_mut() {
-        pair.c_program.source_paths = get_c_source_files(&pair.program_name, repository)?
+        let repository = corpus::get_repository_name(&pair.c_program.repository_url)?;
+        let paths = find_file(&repository, REPOSITORY_CLONES_DIRECTORY);
+
+        // TODO: unwrap
+        let repository_path = paths.get(0).unwrap();
+
+        pair.c_program.source_paths = get_c_source_files(&pair.program_name, &repository_path)?
             .into_iter()
             .map(|f| f.to_str().unwrap().to_string())
             .collect();
     }
 
-    write_metadata(metadata_file, &metadata)?;
+    println!("{metadata:#?}");
+
+    corpus::write_metadata(metadata_file, &metadata)?;
 
     Ok(())
 }

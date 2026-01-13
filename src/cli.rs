@@ -32,9 +32,5 @@ pub enum Commands {
         /// The program name, e.g., "ripgrep"
         #[arg()]
         file: PathBuf,
-
-        /// Path to the repository directory
-        #[arg()]
-        repository: PathBuf,
     },
 }

@@ -23,8 +23,8 @@ pub fn run() {
             corpus::download_program_pairs(false).expect("Failed to download program pairs")
         }
         Some(Commands::Delete) => corpus::delete().expect("Failed to delete directories"),
-        Some(Commands::Metadata { file, repository }) => {
-            metadata::update_metadata_file(&file, &repository)
+        Some(Commands::Metadata { file }) => {
+            metadata::update_metadata_file(&file)
                 .expect(&format!("Failed to update metadata in '{file:?}'"));
         }
     }
